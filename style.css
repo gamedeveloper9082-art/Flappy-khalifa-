@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+  user-select: none;
+}
+
+/* 🎮 Game container */
+#game {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+  background: url('background.png') no-repeat center/cover;
+  border: 2px solid #333;
+}
+
+/* 🧱 Top and bottom bar (decor only) */
+#up, #down {
+  position: absolute;
+  width: 100%;
+  background-size: cover;
+  z-index: 1;
+}
+
+#up {
+  top: 0;
+  height: 142px;
+  background: url('up.png') no-repeat center/cover;
+}
+
+#down {
+  bottom: 0;
+  height: 135px;
+  background: url('down.png') no-repeat center/cover;
+}
+
+/* 🐦 Character */
+#character {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  left: 100px;
+  top: 250px;
+  background: url('charactor.png') no-repeat center/contain;
+  z-index: 2;
+  transition: transform 0.1s;
+}
+
+/* 🧱 Pillars */
+.pillar {
+  position: absolute;
+  width: 70px;
+  z-index: 1;
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  image-rendering: crisp-edges;
+  border-radius: 0px;
+}
+
+/* Top pillar (use uppiller.png) */
+.pillar.top {
+  background-image: url('uppiller.png');
+}
+
+/* Bottom pillar (use downpiller.png) */
+.pillar.bottom {
+  background-image: url('downpiller.png');
+}
+
+/* 💬 Game Over Popup */
+#popup {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 300px;
+  background: url('popup.png') no-repeat center/contain;
+  display: none;
+  z-index: 3;
+  text-align: center;
+  color: gold;
+  font-family: Arial, sans-serif;
+  padding-top: 150px;
+  text-shadow: 2px 2px 5px black;
+}
+
+/* 🏆 Scores */
+#score, #bestScore {
+  position: absolute;
+  top: 10px;
+  font-size: 22px;
+  font-family: Arial, sans-serif;
+  text-shadow: 2px 2px 5px black;
+  z-index: 3;
+}
+
+#score { left: 10px; color: white; }
+#bestScore { right: 10px; color: gold; }
+
+/* 🚀 Start Screen */
+#startScreen {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color pink;
+  font-family: Arial, sans-serif;
+  z-index: 5;
+  text-align: center;
+}
+
+#startScreen h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+#startScreen p {
+  font-size: 20px;
+  opacity: 0.8;
+  animation: blink 1s infinite;
+}
+
+/* ✨ Blink animation for "Tap to Start" */
+@keyframes blink {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}
